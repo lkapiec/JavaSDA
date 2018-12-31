@@ -19,8 +19,8 @@ public class TestujCzas {
 
 
 
-        //Czas [] tab = {t1, t2, t2};
-        //System.out.println("Czas.sumuj dla t1 + t2 + t2 = " + Czas.sumuj(tab, tab.length));
+        Czas [] tab = {t1, t2, t2};
+        System.out.println("Czas.sumuj dla t1 + t2 + t2 = " + Czas.sumuj(tab, tab.length));
         //System.out.println("t1 * 2 = " + t1.pomnoz(2));
 
         //Czas t3 = new Czas("3 h 17 min");

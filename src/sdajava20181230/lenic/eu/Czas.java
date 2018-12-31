@@ -66,6 +66,17 @@ public class Czas {
 
         newcomplex.godziny -= t.godziny;
 
+        int min = this.minuty - t.minuty;
+
+        if(min < 0)
+        {
+            newcomplex.minuty += min;
+            newcomplex.godziny -= 1;
+        } else
+        {
+            newcomplex.minuty -= t.minuty;
+        }
+
 
         return newcomplex;
     }
@@ -88,7 +99,18 @@ public class Czas {
         for(int index = 0; index < n; index++)
         {
             System.out.println(">" + tab[index].toString());
-            t.dodaj(tab[index]);
+
+            if(tab[index].minuty >= 60)
+            {
+                t.godziny += (int) tab[index].minuty / 60;
+                t.minuty += tab[index].minuty % 60;
+            } else
+            {
+                t.minuty += tab[index].minuty;
+            }
+
+            // godzin mozemy miec nawet 100 i to tam nie przeszkadza */
+            t.godziny += tab[index].godziny;
         }
         return t;
     }
