@@ -1,96 +1,109 @@
 package sdajava20181230.lenic.eu;
 
+//kod moze zawierac błedy, nie jestem pewien jak powinna być zrealizowana metoda pomnoz i sumuj
+// jakie wartosci powinny zwracac (czy to mają byc np nowe obiekty)
+//https://github.com/lkapiec/JavaSDA
+
+import static java.lang.Math.abs;
+
 public class Czas {
 
     private int godziny;
     private int minuty;
 
+    private void wyrownaj()
+    {
+        if(this.minuty > 59)
+        {
+            // jesli minut jest wiecej niz 60 przeliczamy to liczbe godzin i minut jako reszta z dzielenia
+            this.godziny += (int) this.minuty / 60;
+            this.minuty = this.minuty % 60;
+        } else if(this.minuty < 0)
+        {
+            // jesli mamy ujemn wartosc to realizujemy pozyczkę z godzin
+            // musiał bym sprawdzic czy mogę opuscić metode abs(wartosc bezwzgledna)
+            this.godziny -= (int) abs(this.minuty / 60) + 1;
+            this.minuty = 60 - abs(this.minuty % 60);
+        }
+    } /* wyglada na poprawną */
+
     public Czas(int godziny, int minuty)
     {
-        /* skoro mamy jawne metody do odejmowania to nie potrzebujemy reagowac na wartosci ujemnie */
-        if((minuty < 0)||(godziny < 0)) return;
-
-        if(minuty >= 60)
-        {
-            this.godziny = (int) minuty / 60;
-            this.minuty = minuty % 60;
-        } else
-        {
-            this.minuty = minuty;
-        }
-
-        // godzin mozemy miec nawet 100 i to tam nie przeszkadza */
-        this.godziny += godziny;
-    }
+        this.minuty = minuty;
+        this.godziny = godziny;
+        this.wyrownaj();
+    } /* ok */
 
     public Czas()
     {
         this(0,0);
-    }
+    } /* ok */
 
     public Czas(String wyrazenie)
     {
-        if(wyrazenie.equals(""))
+        /* wstepnie inicjalizujemy, bezpiecznie */
+        this.minuty = 0;
+        this.godziny = 0;
+
+        /* zabiezpieczenie przed głupotami */
+        if(wyrazenie != null)
+        if(!wyrazenie.equals(""))
         {
-            //this(0,0);
+            // podziel wszysko wg spacji
+            String []tablica = wyrazenie.split(" ");
+
+            if(tablica[1].equals("h")&&tablica[3].equals("min"))
+            {
+                /* dodać ewentualną obsługe wyjątku */
+                this.godziny = Integer.parseInt(tablica[0]);
+                this.minuty = Integer.parseInt(tablica[2]);
+                this.wyrownaj();
+            } else
+            {
+                System.out.println("Nie prawidłowy typ danych (dopisz wiecej kodu aby pomoc uzytkownikowi)");
+            }
         }
     }
 
     public String toString() {
-        return "" + godziny + " h " + minuty + " min";
-    }
-
+        return "" + this.godziny + " h " + this.minuty + " min";
+    } /* ok */
 
     public Czas dodaj(Czas t)
     {
+        /* robimy kopie obiekty ktory zostal przeslany jako argmnent i juz na nim bedziemy operować */
         Czas newcomplex = new Czas(this.godziny, this.minuty);
 
-        if(t.minuty >= 60)
-        {
-            newcomplex.godziny += (int) t.minuty / 60;
-            newcomplex.minuty += t.minuty % 60;
-        } else
-        {
-            newcomplex.minuty += t.minuty;
-        }
-
-        // godzin mozemy miec nawet 100 i to tam nie przeszkadza */
         newcomplex.godziny += t.godziny;
+        newcomplex.minuty += t.minuty;
+
+        newcomplex.wyrownaj();
 
         return newcomplex;
-    }
+    } /* ok */
 
     public Czas odejmij(Czas t)
     {
         Czas newcomplex = new Czas(this.godziny, this.minuty);
 
         newcomplex.godziny -= t.godziny;
+        newcomplex.minuty -= t.minuty;
 
-        int min = this.minuty - t.minuty;
-
-        if(min < 0)
-        {
-            newcomplex.minuty += min;
-            newcomplex.godziny -= 1;
-        } else
-        {
-            newcomplex.minuty -= t.minuty;
-        }
-
+        newcomplex.wyrownaj();
 
         return newcomplex;
-    }
+    } /* ok */
 
     public Czas pomnoz(int ile)
     {
-        int minuty = (this.godziny) * 60 + this.minuty;
-        minuty *= ile;
+        this.minuty *= ile;
+        this.godziny *= ile;
 
-        this.minuty = minuty % 60;
-        this.godziny = (int) minuty / 60;
+        this.wyrownaj();
 
         return this;
-    }
+    } /* ok */
+
 
     public static Czas sumuj(Czas [] tab, int n)
     {
@@ -98,21 +111,12 @@ public class Czas {
 
         for(int index = 0; index < n; index++)
         {
-            System.out.println(">" + tab[index].toString());
-
-            if(tab[index].minuty >= 60)
-            {
-                t.godziny += (int) tab[index].minuty / 60;
-                t.minuty += tab[index].minuty % 60;
-            } else
-            {
-                t.minuty += tab[index].minuty;
-            }
-
-            // godzin mozemy miec nawet 100 i to tam nie przeszkadza */
-            t.godziny += tab[index].godziny;
+            t.godziny += (int) tab[index].godziny;
+            t.minuty += tab[index].minuty;
         }
-        return t;
-    }
 
+        t.wyrownaj();
+
+        return t;
+    } /* ok */
 }
