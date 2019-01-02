@@ -1,7 +1,7 @@
 package sdajava20181230.lenic.eu;
 
 //kod moze zawierac błedy, nie jestem pewien jak powinna być zrealizowana metoda pomnoz i sumuj
-// jakie wartosci powinny zwracac (czy to mają byc np nowe obiekty)
+//jakie wartosci powinny zwracac (czy to mają byc np nowe obiekty)
 //https://github.com/lkapiec/JavaSDA
 
 import static java.lang.Math.abs;
