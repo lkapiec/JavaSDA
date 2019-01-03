@@ -7,18 +7,13 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class FileBrowser  {
-
-
-
-
     public static void main(String...arg)
     {
         System.out.println("==FileBrowser==");
 
-        File dir = new File("/bin");
+        File dir = new File("/");
 
         ArrayList<Files> files = new ArrayList<Files>();
-
 
         File[] fileList = dir.listFiles();
 
@@ -66,8 +61,6 @@ public class FileBrowser  {
 
 
        // Collections.sort(files, Files.);
-
-
 
         for(Files item : files)
         {

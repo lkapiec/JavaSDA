@@ -25,35 +25,31 @@ public class Files {
         this.canRead = canRead;
         this.canExecute = canExecute;
         this.length = size;
+        this.lastModified = lastModified;
     }
 
     public String toString() {
         char unit = '-';
         long size = 0;
 
-
         Calendar cal = Calendar.getInstance();
         cal.setTimeInMillis(this.lastModified);
 
-
         Date date = new Date(this.lastModified);
 
-        if (this.length < 1024) {
-            size = this.length / 1;
-            unit = ' ';
-        } else if((this.length >= 1024)&&(this.length < (1024 * 1024))) {
-            size = this.length / 1024;
-            unit = 'K';
-        } else if((this.length >= (1024 * 1024))&&(this.length < (1024 * 1024 * 1024)))
-        {
-            size = this.length / (1024 * 1024);
-            unit = 'M';
-        } else if(this.length >= (1024 * 1024 * 1024))
-        {
-            size = this.length / (1024 * 1024 * 1024);
-            unit = 'G';
+        if(this.length >= SizeUnits.UNIT_NONE.getSize()) {
+            size = SizeUnits.UNIT_NONE.restDiv(this.length);
+            unit = SizeUnits.UNIT_NONE.getUnit();
+        } if(this.length >= SizeUnits.UNIT_KILO.getSize()) {
+            size = SizeUnits.UNIT_KILO.restDiv(this.length);
+            unit = SizeUnits.UNIT_KILO.getUnit();
+        } if(this.length >= SizeUnits.UNIT_MEGA.getSize()) {
+            size = SizeUnits.UNIT_MEGA.restDiv(this.length);
+            unit = SizeUnits.UNIT_MEGA.getUnit();
+        } if(this.length >= SizeUnits.UNIT_TERA.getSize()) {
+            size = SizeUnits.UNIT_TERA.restDiv(this.length);
+            unit = SizeUnits.UNIT_TERA.getUnit();
         }
-
 
         return String.format("%-20s %c%c%c%c%c %4d%c %s ", this.fileName,
                 (this.isDirectory ? 'd' : (this.isFile ? 'f' : 'p')),
@@ -61,7 +57,8 @@ public class Files {
                 (this.canWrite ? 'w' : '-'),
                 (this.canExecute ? 'x' : '-'),
                 (this.isHidden ? 'h' : '-'),
-                size, unit,
+                size,
+                unit,
                 date
         );
     }
