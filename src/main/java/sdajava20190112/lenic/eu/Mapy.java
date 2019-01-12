@@ -17,7 +17,6 @@ public class Mapy {
         otherPairsMap.put("Marek", "Ewa");
         otherPairsMap.put("Adam",  "Ewa");
 
-
         pairsMap.putAll(otherPairsMap);
 
         System.out.println(pairsMap.get("Marek"));

@@ -13,7 +13,6 @@ public class Sety {
         setWithNames.add("Marek");
         setWithNames.add("Marcin");
 
-
         Set<String> otherSet = new HashSet<String>();
 
         setWithNames.add("Zenon");
@@ -25,7 +24,6 @@ public class Sety {
         System.out.println(setWithNames.size());
         System.out.println(setWithNames.contains("Marcin"));
         System.out.println(setWithNames.remove("Janusz"));
-
     }
 
 }
