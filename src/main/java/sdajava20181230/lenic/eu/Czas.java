@@ -4,6 +4,8 @@ package sdajava20181230.lenic.eu;
 //jakie wartosci powinny zwracac (czy to mają byc np nowe obiekty)
 //https://github.com/lkapiec/JavaSDA
 
+// nie jasne wymagania :)
+
 import static java.lang.Math.abs;
 
 public class Czas {
