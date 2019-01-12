@@ -94,6 +94,7 @@ public class Lekarstwa {
 
     public void wyswietl()
     {
+        System.out.println("==Header==");
         for(String nazwa : this.nazwa)
         {
             System.out.println("Nazwa: " + nazwa + ", cena: "+ this.cena.get(nazwa) + " zł, refundacja: " + this.refundacja.get(nazwa) + " %");
