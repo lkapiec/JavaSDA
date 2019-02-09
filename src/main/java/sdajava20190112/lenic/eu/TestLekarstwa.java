@@ -26,8 +26,6 @@ public class TestLekarstwa {
         System.out.println("koszt całkowoty:" + lekarstwa.kosztCalkowity());
         System.out.println("maksymalna refundacja:" + lekarstwa.maksymalnaRefundacja());
 
-
-
         lekarstwa.wyswietl();
     }
 }
