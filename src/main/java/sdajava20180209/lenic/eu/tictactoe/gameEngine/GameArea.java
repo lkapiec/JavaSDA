@@ -1,4 +1,4 @@
-package sdajava20180209.lenic.eu.tictactoe;
+package sdajava20180209.lenic.eu.tictactoe.gameEngine;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -55,27 +55,24 @@ public class GameArea {
         {
             // stracpna kolejka
             //return  false;
-
         }
         return result;
     }
 
-    private boolean isWinner() {
+    public boolean isWinner() {
 
         for(int i = 0; i < 3; i++)
         {
 
         }
-
-
         return false;
     }
 
-    private boolean isEmptyField() {
+    public boolean isEmptyField() {
         return movments < 9;
     }
 
-    private boolean isEmptyField2() {
+    public boolean isEmptyField2() {
         for(int row = 0; row < 3; row++)
             for(int col = 0; col < 3; col++)
                 if(area[row][col] == emptyField)

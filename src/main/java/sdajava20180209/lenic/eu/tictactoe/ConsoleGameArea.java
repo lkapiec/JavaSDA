@@ -1,5 +1,8 @@
 package sdajava20180209.lenic.eu.tictactoe;
 
+import sdajava20180209.lenic.eu.tictactoe.gameEngine.GameArea;
+import sdajava20180209.lenic.eu.tictactoe.gameEngine.Player;
+
 public class ConsoleGameArea extends GameArea {
 
     public ConsoleGameArea(Player g1, Player g2)
@@ -18,7 +21,6 @@ public class ConsoleGameArea extends GameArea {
             }
             System.out.println("");
         }
-
         System.out.println("");
     }
 }

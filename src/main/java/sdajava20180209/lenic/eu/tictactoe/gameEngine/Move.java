@@ -1,4 +1,4 @@
-package sdajava20180209.lenic.eu.tictactoe;
+package sdajava20180209.lenic.eu.tictactoe.gameEngine;
 
 import java.util.Arrays;
 import java.util.List;
