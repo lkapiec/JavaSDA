@@ -37,8 +37,8 @@ public class GameArea {
     {
         boolean result = false;
 
-        int row = move.getRow();
-        int col = move.getCol();
+        int row = move.getRowAsIndex();
+        int col = move.getColAsIndex();
 
         if(area[row][col] == emptyField)
         {

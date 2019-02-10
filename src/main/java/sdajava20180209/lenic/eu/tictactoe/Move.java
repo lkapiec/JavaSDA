@@ -15,14 +15,16 @@ public class Move {
 
     public Move(char col, int row)
     {
-        if(properColumns.contains(col) && properRows.contains(row))
+        if(properColumns.contains(col) /*&& properRows.contains(row)*/)
         {
             this.row = row;
             this.col = col;
-
         } else
         {
-            throw new IllegalStateException("niepoprawny" + " wiersz lub kolumna");
+            throw new IllegalStateException("niepoprawna lokalizacja " + col + ":" + row  +
+                    "wynik1" + properColumns.contains(col) +
+                    "wynik2" + properRows.contains(row));
+
         }
     }
 
@@ -36,13 +38,26 @@ public class Move {
     }
 
     public int getRowAsIndex() {
-        return col - 1;
+        switch(row)
+        {
+            case 1:
+                return 0;
+            //result =  0;
+            //break;
+            case 2:
+                return 1;
+            //result = 1;
+            //break;
+            case 3:
+                return 2;
+            //result = 2;
+            //break;
+        }
+        return -1;
     }
 
     public int getColAsIndex()
     {
-        //int result = -1;
-
         switch(col)
         {
             case 'a':

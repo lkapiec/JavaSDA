@@ -11,13 +11,14 @@ public class ConsoleGameArea extends GameArea {
     {
         for(int row = 0; row < 3; row++)
         {
-            System.out.println("| ");
+            System.out.print("|");
             for(int col = 0; col < 3; col++)
             {
-                System.out.println(area[col][row]);
+                System.out.print(" " + area[col][row] + " |") ;
             }
-            System.out.println("|");
+            System.out.println("");
         }
-    }
 
+        System.out.println("");
+    }
 }
