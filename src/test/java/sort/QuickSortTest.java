@@ -1,6 +1,7 @@
-package sdajava20180209.lenic.eu;
+package sort;
 
 import org.testng.Assert;
+import sdajava20180209.lenic.eu.QuickSort;
 
 import static org.junit.jupiter.api.Assertions.*;
 

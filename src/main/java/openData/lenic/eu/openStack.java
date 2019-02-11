@@ -1,4 +1,4 @@
-package openStack;
+package openData.lenic.eu;
 
 import datastructure.lenic.eu.Node;
 

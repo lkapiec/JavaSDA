@@ -99,7 +99,8 @@ public class GameBoard {
     {
         Coordinaties emptyElementCoordinates = localeEmptyElement();
 
-        int absCol = Math.abs()
+        int absCol = Math.abs(1);
+        int absRow = Math.abs(1);
 
 
         if((absCol+absRow) == 1)
@@ -111,7 +112,7 @@ public class GameBoard {
             return false;
         }
 
-        return false;
+        ///return false;
     }
 
     private void swap(Coordinaties blockToBeMoved, Coordinaties emptyElementCoordinates) {
