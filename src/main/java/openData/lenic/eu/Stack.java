@@ -1,4 +1,4 @@
-package sdajava20180209.lenic.eu;
+package openData.lenic.eu;
 
 public class Stack<T> {
 

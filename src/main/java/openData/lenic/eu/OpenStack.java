@@ -2,7 +2,7 @@ package openData.lenic.eu;
 
 import datastructure.lenic.eu.Node;
 
-public class openStack<T>  extends Node {
+public class OpenStack<T>  extends Node {
 
     Node<T> top = null;
 

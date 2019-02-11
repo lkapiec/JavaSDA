@@ -1,0 +1,19 @@
+xfgbdf
+
+
+public static boolean chkPrime(int value)
+    {
+        boolean isPrime = true;
+
+        if(value == 1)
+            return false;
+
+        for(int index = value - 1; ((index > 2)&&(isPrime)); index--)
+        {
+            if(value % index == 0)
+            {
+                isPrime = false;
+            }
+        }
+        return isPrime;
+    }
