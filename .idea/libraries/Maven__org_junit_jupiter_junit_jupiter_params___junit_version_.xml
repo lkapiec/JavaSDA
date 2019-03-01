@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.junit.jupiter:junit-jupiter-params:${junit.version}">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-params/${junit.version}/junit-jupiter-params-${junit.version}.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-params/${junit.version}/junit-jupiter-params-${junit.version}-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/junit/jupiter/junit-jupiter-params/${junit.version}/junit-jupiter-params-${junit.version}-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
