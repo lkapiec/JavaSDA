@@ -2,11 +2,11 @@ package sdajava20180209.lenic.eu;
 
 import org.testng.Assert;
 
-import static org.junit.jupiter.api.Assertions.*;
+//import static org.junit.jupiter.api.Assertions.*;
 
 class QuickSortTest {
 
-    @org.junit.jupiter.api.Test
+    //@org.junit.jupiter.api.Test
     void sort() {
 
         int tablicaUnsorted[] = {1,7,2,0,4,6,3,5};
